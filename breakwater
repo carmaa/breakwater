@@ -1,0 +1,30 @@
+#!/usr/bin/env python3
+
+import sys
+
+
+def deobfuscate(string):
+
+    password = ''
+    b = bytearray(len(string) // 4)
+    i = 0
+
+    for x in b:
+        t = string[i:i + 4]
+        i0 = int(t, 36)
+        i1 = i0 // 256
+        i2 = i0 % 256
+        x = (i1 + i2 - 254) // 2
+        password += chr(x)
+        i += 4
+
+    return password
+
+if (len(sys.argv) == 2):
+    string = sys.argv[1]
+else:
+    print('Breakwater - deobfuscate Jetty passwords')
+    print('{0} <string>'.format(sys.argv[0]))
+    exit(0)
+
+print(deobfuscate(string))
