@@ -23,8 +23,8 @@ def deobfuscate(string):
 if (len(sys.argv) == 2):
     string = sys.argv[1]
 else:
-    print('Breakwater - deobfuscate Jetty passwords')
-    print('{0} <string>'.format(sys.argv[0]))
+    print('Breakwater - deobfuscates Jetty passwords')
+    print('{0} string'.format(sys.argv[0]))
     exit(0)
 
 print(deobfuscate(string))
